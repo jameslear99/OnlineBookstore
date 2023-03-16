@@ -7,28 +7,17 @@
 <br /><br />
 
 
-<h4>Page Num:</h4>
-<!--Made some light styling here using bootstrap and divs-->
-<h3><div page-model="@Model.PageInfo" page-action="Index" class="badge badge-pill badge-primary font-weight-bolder"></div> </h3>
 
-<br />
+<!--Made some light styling here using bootstrap and divs-->
+
+
 
 
 <div class="text-center">
 
     @foreach (Book b in Model.Books)
     {
-        <h3>@b.Title</h3>
-        <ul class="list-inline">
-            <li>Author: @b.Author</li>
-            <li>Publisher: @b.Publisher</li>
-            <li>Category: @b.Category</li>
-            <li>Classification: @b.Classification</li>
-            <li>Number of Pages: @b.PageCount</li>
-            <li>ISBN: @b.Isbn</li>
-            <li>Price: @b.Price</li>
-        </ul>
-        <br />
+        <partial name="BookSummary" model="b"/>
     }
 
 </div>
@@ -36,4 +25,7 @@
 
 
 <h4>Page Num:</h4>
-<div page-model="@Model.PageInfo" page-action="Index"></div>
+<div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>
